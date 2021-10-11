@@ -1,0 +1,119 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pale-blue: rgb(22, 168, 168);
+  --btn-hover: rgb(25, 195, 195);
+}
+
+/* ---------------- */
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: white;
+  width: 100%;
+  border-bottom: 3px solid var(--pale-blue);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.navbar-pages {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar-pages span {
+  width: 30%;
+  text-align: center;
+  padding: 30px 20px 20px ;
+  cursor: pointer;
+}
+
+.navbar-pages span:hover {
+  background-color: var(--pale-blue);
+  color: white;
+  font-weight: bold;
+}
+
+
+/* ---------------- */
+
+.login-card-container {
+  margin-top: 20px;
+  
+  display: flex;
+  justify-content: center;
+}
+
+.login-card {
+  width: 40%;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid rgb(218, 218, 218);
+}
+
+.login-card .welcome-message {
+  font-size: 1.4rem;
+}
+
+.login-page-image img {
+  height: 150px;
+}
+
+.login-form {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.login-form form {
+  width: 90%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form form label {
+  color: var(--pale-blue);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.login-form form select {
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form form button {
+  margin-top: 20px;
+  background-color: var(--pale-blue);
+  color: white;
+  padding: 10px;
+  outline: none;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form form button:hover {
+  background-color: var(--btn-hover);
+}
+
+/* ---------------- */
