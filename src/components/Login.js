@@ -3,9 +3,9 @@ import {useSelector, useDispatch} from 'react-redux'
 import { handleInitialData } from '../actions/shared';
 import { setAuthedUser } from '../actions/authedUser';
 import { useEffect, useState } from 'react';
-// import { Redirect } from "react-router";
+import { useHistory } from "react-router-dom";
 function Login() {
-    
+    const history = useHistory();
     const dispatch = useDispatch()
     const users = useSelector(state => state.users)
     const [selectedUserID, setselectedUserID] = useState('')
@@ -23,6 +23,7 @@ function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
         dispatch(setAuthedUser(selectedUserID))
+        history.push('/home')
         // return <Redirect to="/"></Redirect>
     }
 
@@ -54,7 +55,7 @@ function Login() {
                                     })
                                 }
                             </select>
-                            <button type="submit">Submit</button>
+                                <button type="submit">Submit</button>
                         </form>
                     </div>
                 </div>

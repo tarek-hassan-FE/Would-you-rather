@@ -7,7 +7,7 @@ export default function authedUser (state = { } , action) {
                 ...state,
                 id: action.id
             }
-            default:
-                return state;
+        default:
+            return state;
     }
 }

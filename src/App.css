@@ -12,6 +12,11 @@ html, body {
   --btn-hover: rgb(25, 195, 195);
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 /* ---------------- */
 
 .navbar-container {
@@ -34,19 +39,47 @@ html, body {
   justify-content: space-evenly;
 }
 
-.navbar-pages span {
+.navbar-pages a {
   width: 30%;
   text-align: center;
   padding: 30px 20px 20px ;
   cursor: pointer;
 }
 
-.navbar-pages span:hover {
+.navbar-pages a:hover {
   background-color: var(--pale-blue);
   color: white;
   font-weight: bold;
 }
 
+.navbar-user {
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.navbar-user img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.navbar-user span {
+  font-size: 1.4rem;
+}
+
+.navbar-user button {
+  background: none;
+  border: none;
+  padding: 20px;
+  font-size: 1.2rem;
+}
+.navbar-user button:hover {
+  background-color: rgb(190, 0, 0);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 /* ---------------- */
 

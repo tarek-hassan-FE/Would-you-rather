@@ -19,8 +19,8 @@ This is the code for the final assessment project for Udacity's React & Redux co
 _________________
 
 ### Login Flow
-- [ ] Application have a way to log in and log out
-- [ ] application work correctly regardless of which person the user impersonates
+- [x] Application have a way to log in and log out
+- [x] application work correctly regardless of which person the user impersonates
 _________________
 
 ### Application Functionality
