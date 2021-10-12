@@ -1,10 +1,34 @@
 import React from 'react';
-import Navbar from './Navbar';
-
+import {useSelector, useDispatch} from 'react-redux'
+import { handleInitialData } from '../actions/shared';
+import { setAuthedUser } from '../actions/authedUser';
+import { useEffect, useState } from 'react';
+// import { Redirect } from "react-router";
 function Login() {
+    
+    const dispatch = useDispatch()
+    const users = useSelector(state => state.users)
+    const [selectedUserID, setselectedUserID] = useState('')
+
+    useEffect(() => {
+        dispatch(handleInitialData())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+    
+
+    const handleSelectUser = (e) => {
+        setselectedUserID(e.target.value)
+    }
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        dispatch(setAuthedUser(selectedUserID))
+        // return <Redirect to="/"></Redirect>
+    }
+
     return (
         <div className="login-page-container">
-            <Navbar />
+            
             <div className="login-card-container">
                 <div className="login-card">
                     <div className="welcome-message">
@@ -15,13 +39,22 @@ function Login() {
                         <img src="https://equimper.gallerycdn.vsassets.io/extensions/equimper/react-native-react-redux/2.0.6/1602247317454/Microsoft.VisualStudio.Services.Icons.Default" alt="" />
                    </div>
                     <div className="login-form">
-                        <form>
+
+                        <form onSubmit={ e => handleLogin(e) }>
+
                             <label> Sign in</label>
-                            <select defaultValue = "" >
+                            <select defaultValue = "" onChange={(e)=> handleSelectUser(e) }>
                                 <option value="" disabled>Select User</option>
-                                <option value="user1">User 1</option>
+                                {
+                                    Object.keys(users).map(name => {
+                                        let user = users[name];
+                                        return <option key={user.id} value={user.id}>
+                                                {user.name}
+                                            </option>
+                                    })
+                                }
                             </select>
-                            <button>Submit</button>
+                            <button type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
