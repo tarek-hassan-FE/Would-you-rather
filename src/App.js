@@ -32,7 +32,7 @@ function App() {
             <Navbar />
             <Home />
           </AuthRoute>
-            
+        
         </Switch>
       </Router>
     </Provider>

@@ -2,7 +2,7 @@ let users = {
   sarahedo: {
     id: 'sarahedo',
     name: 'Sarah Edo',
-    avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU37FnbBg50aestSWYenXfXOSAK5UjVcHCJfgbl96rpocUMXtGqXaVFBxHbou9qWNzQoU&usqp=CAU',
+    avatarURL: 'https://i.pinimg.com/564x/5a/14/c2/5a14c2df63dde984068650fc883cff85.jpg',
     answers: {
       "8xf0y6ziyjabvozdd253nd": 'optionOne',
       "6ni6ok3ym7mf1p33lnez": 'optionTwo',
@@ -14,7 +14,7 @@ let users = {
   tylermcginnis: {
     id: 'tylermcginnis',
     name: 'Tyler McGinnis',
-    avatarURL: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkS8v2vSpIzK2HCPWDdfZP3vbvQhEm5fxuwkNENSNSswbBoWScLb0h3GjVFqgZB9FEpSg&usqp=CAU',
+    avatarURL: 'https://i.redd.it/drag2oucx93z.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'optionOne',
       "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -24,7 +24,7 @@ let users = {
   johndoe: {
     id: 'johndoe',
     name: 'John Doe',
-    avatarURL: 'https://www.kindpng.com/picc/m/78-786207_user-avatar-png-user-avatar-icon-png-transparent.png',
+    avatarURL: 'https://i.pinimg.com/564x/8d/d3/b0/8dd3b09d3961cf28cb86f6a141b26037.jpg',
     answers: {
       "xj352vofupe1dqz9emx13r": 'optionOne',
       "vthrdm985a262al8qx3do": 'optionTwo',

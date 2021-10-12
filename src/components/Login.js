@@ -55,7 +55,7 @@ function Login() {
                                     })
                                 }
                             </select>
-                                <button type="submit">Submit</button>
+                                <button type="submit" className='btn'>Submit</button>
                         </form>
                     </div>
                 </div>

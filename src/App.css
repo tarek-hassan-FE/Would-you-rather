@@ -10,6 +10,7 @@ html, body {
 :root {
   --pale-blue: rgb(22, 168, 168);
   --btn-hover: rgb(25, 195, 195);
+  --border: rgb(218, 218, 218);
 }
 
 a {
@@ -40,13 +41,19 @@ a {
 }
 
 .navbar-pages a {
-  width: 30%;
+  width: 32%;
   text-align: center;
   padding: 30px 20px 20px ;
   cursor: pointer;
 }
 
 .navbar-pages a:hover {
+  background-color: var(--pale-blue);
+  color: white;
+  font-weight: bold;
+}
+
+.navbar-pages .active-page {
   background-color: var(--pale-blue);
   color: white;
   font-weight: bold;
@@ -94,7 +101,7 @@ a {
   width: 40%;
   text-align: center;
   padding: 10px;
-  border: 1px solid rgb(218, 218, 218);
+  border: 1px solid var(--border);
 }
 
 .login-card .welcome-message {
@@ -134,7 +141,7 @@ a {
   cursor: pointer;
 }
 
-.login-form form button {
+.btn{
   margin-top: 20px;
   background-color: var(--pale-blue);
   color: white;
@@ -145,8 +152,106 @@ a {
   cursor: pointer;
 }
 
-.login-form form button:hover {
+.btn-outline {
+  width: 100%;
+  margin-top: 20px;
+  background-color: white;
+  font-weight: bold;
+  color: var(--pale-blue);
+  padding: 10px;
+  outline: none;
+  border: 1px solid var(--pale-blue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
   background-color: var(--btn-hover);
+}
+
+.btn-outline:hover {
+  background-color: var(--pale-blue);
+  color: white;
+}
+
+/* ---------------- */
+
+.feed-container {
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.questions-type-container {
+ 
+  width: 50%;
+  margin: 20px auto 0px ;
+  display: flex;
+  justify-content: center;
+}
+
+.questions-type-container button {
+  border: 1px solid var(--border);
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.questions-type-container button:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.questions-type-container .active-questions-type {
+  color: var(--pale-blue);
+  background-color: rgb(233, 233, 233);
+  font-weight: bold;
+}
+
+.feed {
+  width: 100%;
+
+}
+
+.question-card {
+  border: 1px solid var(--border) ;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.question-card-title {
+  background-color: rgb(241, 241, 241);
+  padding: 20px;
+}
+
+
+.question-card-body {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.question-card-avatar-container { 
+  width: 35%;
+  border-right: 1px solid var(--border);
+}
+
+.question-card-body img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+
+.question-card-question-container {
+  width: 55%;
+}
+
+.question-card-question-container :nth-child(2) {
+  color: rgb(151, 151, 151);
 }
 
 /* ---------------- */
