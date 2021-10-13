@@ -16,13 +16,13 @@ export default function Home() {
   const checkIfUserAnswered = (question, questionsType) => {
     return questionsType === 0
       ? question.optionOne.votes.filter((user) => user === authedUser.id)
-          .length > 0 ||
-          question.optionTwo.votes.filter((user) => user === authedUser.id)
-            .length > 0
-      : question.optionOne.votes.filter((user) => user === authedUser.id)
           .length === 0 &&
           question.optionTwo.votes.filter((user) => user === authedUser.id)
-            .length === 0;
+            .length === 0
+      : question.optionOne.votes.filter((user) => user === authedUser.id)
+          .length > 0 ||
+          question.optionTwo.votes.filter((user) => user === authedUser.id)
+            .length > 0;
   };
 
   return (
@@ -46,11 +46,14 @@ export default function Home() {
           {questionsType.type === 0
             ? Object.keys(questions).map((id) => {
                 const question = questions[id];
-                if (checkIfUserAnswered(question , 0))
+                const user = users[question.author]; 
+                const isAnswered = checkIfUserAnswered(question , 0) 
+                if (isAnswered)
                   return (
                     <QuestionCard
                       question={question}
-                      users={users}
+                      user={user}
+                      QuestionStatus={isAnswered}
                       key={question.id}
                     ></QuestionCard>
                   );
@@ -58,11 +61,14 @@ export default function Home() {
               })
             : Object.keys(questions).map((id) => {
                 const question = questions[id];
-                if (checkIfUserAnswered(question , 1))
+                const user = users[question.author]; 
+                const isNotAnswered = checkIfUserAnswered(question , 1) 
+                if (isNotAnswered)
                   return (
                     <QuestionCard
                       question={question}
-                      users={users}
+                      user={user}
+                      QuestionStatus={!isNotAnswered}
                       key={question.id}
                     ></QuestionCard>
                   );

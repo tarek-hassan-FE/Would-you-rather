@@ -32,10 +32,10 @@ _________________
     5. The user can navigate to the leaderboard.
     6. The user can navigate to the form that allows the user to create a new poll.
 
-- [ ] The polling questions listed in the correct category (Unanswered vs Answered), and they have the desired functionality on the home page.
+- [x] The polling questions listed in the correct category (Unanswered vs Answered), and they have the desired functionality on the home page.
     - Each polling question resides in the correct category. For example, if a question hasn’t been answered by the current user, it should be in the “Unanswered” category.
 
-- [ ] The details of each poll displayed with all of the relevant information
+- [x] The details of each poll displayed with all of the relevant information
     1. The details of the poll are available at questions/:question_id.
     2. When a poll is clicked on the home page, the following is shown:
         the text “Would You Rather”;
@@ -49,7 +49,7 @@ _________________
     5. When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
     6. The application asks the user to sign in and shows a 404 page if that poll does not exist. (In other words, if a user creates a poll and then the same or another user tries to access that poll by its url, the user should be asked to sign in and then be shown a 404 page. Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.)
 
-- [ ] The voting mechanism work correctly
+- [x] The voting mechanism work correctly
     1. Upon voting in a poll, all of the information of the answered poll is displayed.
     2. The user’s response is recorded and is clearly visible on the poll details page.
     3. When the user comes back to the home page, the polling question appears in the “Answered” column.

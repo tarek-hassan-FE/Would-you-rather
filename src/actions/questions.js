@@ -20,11 +20,12 @@ export function getQuestions(questions , authedUser) {
 }
 
 
-export function answerQuestion(question, authedUser) {
+export function answerQuestion( authedUser , qid , answer) {
     return {
         type: ANSWER_QUESTION,
-        question,
-        authedUser
+        authedUser,
+        qid,
+        answer,
     }
 }
 

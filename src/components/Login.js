@@ -4,6 +4,7 @@ import { handleInitialData } from '../actions/shared';
 import { setAuthedUser } from '../actions/authedUser';
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
+import LoadingBar  from 'react-redux-loading-bar'
 function Login() {
     const history = useHistory();
     const dispatch = useDispatch()
@@ -12,6 +13,7 @@ function Login() {
 
     useEffect(() => {
         dispatch(handleInitialData())
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     
@@ -31,7 +33,9 @@ function Login() {
         <div className="login-page-container">
             
             <div className="login-card-container">
+                
                 <div className="login-card">
+                <LoadingBar scope="sectionBar" />
                     <div className="welcome-message">
                         <p><b>Welcome to the Would You Rather App!</b></p>
                         <p>Please sign in to continue</p>

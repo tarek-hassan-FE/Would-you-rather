@@ -67,12 +67,12 @@ a {
 }
 
 .navbar-user img {
-  width: 50px;
+  width: 40px;
   border-radius: 50%;
 }
 
 .navbar-user span {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
 
 .navbar-user button {
@@ -142,6 +142,7 @@ a {
 }
 
 .btn{
+  width: 100%;
   margin-top: 20px;
   background-color: var(--pale-blue);
   color: white;
@@ -225,6 +226,7 @@ a {
 .question-card-title {
   background-color: rgb(241, 241, 241);
   padding: 20px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 
@@ -237,6 +239,8 @@ a {
 .question-card-avatar-container { 
   width: 35%;
   border-right: 1px solid var(--border);
+  display: flex;
+  align-items: center;
 }
 
 .question-card-body img{
@@ -250,8 +254,110 @@ a {
   width: 55%;
 }
 
-.question-card-question-container :nth-child(2) {
+.question-card-question-container p:nth-child(2) {
   color: rgb(151, 151, 151);
+}
+
+.single-question-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.single-question-container {
+  width: 60%;
+}
+
+.input-answer-container {
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+  width: 100%;
+}
+
+.question-form input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 10px;    
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin-right: 15px;
+    position: relative;
+    width: 20px;
+  }
+
+input[type="radio"]:checked {
+  background-color: rgb(46, 46, 46);
+  outline: 5px solid white;
+  outline-offset: -10px;
+  border: 5px solid var(--pale-blue);
+}
+
+.question-form label{
+  font-size: 1.2rem;
+}
+
+.option-container {
+  width: 100%;
+  padding: 20px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 10px;
+  margin: 20px 0px;
+  border: 2px solid var(--border);
+}
+
+.selected-option {
+  background-color: rgb(214, 255, 241);
+  border: 2px solid var(--pale-blue);
+  position: relative;
+}
+.selected-option h3{
+  color: var(--pale-blue);
+  font-weight: bold;
+}
+
+.selected-option::after {
+  content: "your vote";
+  display: flex;
+  position: absolute;
+  right: -10px;
+  top:-30px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background-color: #e6c721;
+  border-radius: 50%;
+}
+
+.answers-bar-container {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 10px;
+}
+
+.answers-bar {
+  padding: 5px 10px;
+  background-color: var(--pale-blue);
+  border-radius: 10px;
+  color: white;
+}
+
+.answers-bar p {
+  text-align: right;
+}
+
+.option-stats {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 0;
 }
 
 /* ---------------- */

@@ -14,12 +14,8 @@ export default function questions (state = { } , action) {
                 ...action.questions
             }
         case ANSWER_QUESTION:
-            return {
+            return { 
                 ...state,
-                [action.id] : {
-                    ...state,
-                    [action.id]: [action.id].answers.concat([action.authedUser])
-                }
             }
             default:
                 return state;
