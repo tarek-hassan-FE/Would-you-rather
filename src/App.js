@@ -1,5 +1,5 @@
 import './App.css';
-import {applyMiddleware, createStore, compose } from 'redux'
+import {applyMiddleware, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
@@ -13,12 +13,12 @@ import Question from './components/Question';
 import NewQuestion from './components/NewQuestion';
 import LeaderBoard from './components/LeaderBoard';
 
-const composedEnhancer = compose(applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+// const composedEnhancer = compose(applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const store = createStore(
   reducer,
-  composedEnhancer
-  // applyMiddleware(thunk)
+  // composedEnhancer
+  applyMiddleware(thunk)
   )
 
 

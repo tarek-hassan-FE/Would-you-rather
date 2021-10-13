@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Results(props) {
     const {selectedOption , question} = props
-    console.log(question);
+
     const getOptionVotes = (option, question) => {
         return question[option].votes.length;
       };

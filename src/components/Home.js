@@ -11,6 +11,17 @@ export default function Home() {
   const authedUser = useSelector((state) => state.authedUser);
   const [isAuthed, setIsAuthed] = useState(authedUser.id && authedUser.id !== 'guest')
 
+
+  const sortQuestionsByTime = (questions) => {
+    return Object.keys(questions).map(questionID => {
+        return [
+            questions[questionID].timestamp, 
+            questions[questionID].id
+        ]
+    }).sort((a,b) =>(b[0] - a[0])  )
+  }
+  const sortedQuestions = sortQuestionsByTime(questions)
+
   const handleChangeQuestionsType = (type) => {
     setQuestionsType({ type: type });
   };
@@ -51,8 +62,8 @@ export default function Home() {
         <div className="feed-container">
           <div className="feed">
             {questionsType.type === 0
-              ? Object.keys(questions).map((id) => {
-                  const question = questions[id];
+              ? sortedQuestions.map((q) => {
+                  const question = questions[q[1]];
                   const user = users[question.author]; 
                   const isAnswered = checkIfUserAnswered(question , 0) 
                   if (isAnswered)

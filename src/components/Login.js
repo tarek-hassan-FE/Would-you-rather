@@ -28,7 +28,6 @@ function Login(props) {
     const handleLogin = (e , toLocation) => {
         e.preventDefault();
         dispatch(setAuthedUser(selectedUserID))
-        console.log(showPage)
         if(showPage)
             showPage()
         else
