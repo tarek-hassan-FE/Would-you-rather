@@ -6,16 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleUserAnswer } from "../actions/shared";
 import  LoadingBar  from "react-redux-loading-bar";
 import Results from './Results'
+
 export default function QuestionCard(props) {
-  const { question, user, QuestionStatus } = props;
+  const { question, user, questionStatus } = props;
   const authedUser = useSelector((state) => state.authedUser);
   const location = useLocation();
-  const [isAnswered, setisAnswered] = useState(QuestionStatus);
+  const [isAnswered, setisAnswered] = useState(questionStatus);
   const [selectedOption, setselectedOption] = useState("0");
   const dispatch = useDispatch();
-  const [isResultsReady, setisResultsReady] = useState(QuestionStatus)
-
-
+  const [isResultsReady, setisResultsReady] = useState(questionStatus)
 
   const handleAnswerQuestion = (e, selectedOption) => {
     e.preventDefault();

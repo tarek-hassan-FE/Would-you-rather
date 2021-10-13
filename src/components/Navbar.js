@@ -18,7 +18,7 @@ function Navbar() {
         }))
         history.replace('/')
     }
-
+   
     return (
         <div className="navbar-container">
             <div className="navbar">
@@ -30,8 +30,8 @@ function Navbar() {
                     </Link>
 
                     <Link 
-                        to='/new-question' 
-                        className={location.pathname === '/new-question' ? 'active-page' : ''} >
+                        to='/add' 
+                        className={location.pathname === '/add' ? 'active-page' : ''} >
                         New Question
                     </Link>
 

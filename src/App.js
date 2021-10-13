@@ -1,5 +1,5 @@
 import './App.css';
-import {applyMiddleware, createStore } from 'redux'
+import {applyMiddleware, createStore, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
@@ -8,17 +8,17 @@ import reducer from './reducers/inedx'
 import Navbar from './components/Navbar'
 import Login from './components/Login';
 import Home from './components/Home';
-import AuthRoute from './components/AuthRoute'
+// import AuthRoute from './components/AuthRoute'
 import Question from './components/Question';
 import NewQuestion from './components/NewQuestion';
 import LeaderBoard from './components/LeaderBoard';
 
-// const composedEnhancer = compose(applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const composedEnhancer = compose(applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const store = createStore(
   reducer,
-  // composedEnhancer
-  applyMiddleware(thunk)
+  composedEnhancer
+  // applyMiddleware(thunk)
   )
 
 
@@ -34,26 +34,26 @@ function App() {
             <Login />
           </Route>
 
-          <AuthRoute exact path='/home'>
+          <Route exact path='/home'>
             <LoadingBar />
             <Navbar />
             <Home />
-          </AuthRoute>
+          </Route>
 
-          <AuthRoute path='/questions/:id'>
+          <Route path='/questions/:id'>
             <Navbar />
             <Question />
-          </AuthRoute>
+          </Route>
         
-          <AuthRoute path='/new-question'>
+          <Route path='/add'>
             <Navbar />
             <NewQuestion />
-          </AuthRoute>
+          </Route>
 
-          <AuthRoute path='/leaderboard'>
+          <Route path='/leaderboard'>
             <Navbar />
             <LeaderBoard />
-          </AuthRoute>
+          </Route>
 
         </Switch>
       </Router>

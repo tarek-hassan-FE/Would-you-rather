@@ -5,11 +5,14 @@ import { setAuthedUser } from '../actions/authedUser';
 import { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import LoadingBar  from 'react-redux-loading-bar'
-function Login() {
+
+
+function Login(props) {
     const history = useHistory();
     const dispatch = useDispatch()
     const users = useSelector(state => state.users)
     const [selectedUserID, setselectedUserID] = useState('')
+    const {showPage} = props 
 
     useEffect(() => {
         dispatch(handleInitialData())
@@ -22,11 +25,15 @@ function Login() {
         setselectedUserID(e.target.value)
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = (e , toLocation) => {
         e.preventDefault();
         dispatch(setAuthedUser(selectedUserID))
-        history.push('/home')
-        // return <Redirect to="/"></Redirect>
+        console.log(showPage)
+        if(showPage)
+            showPage()
+        else
+            history.push('/home')
+
     }
 
     return (

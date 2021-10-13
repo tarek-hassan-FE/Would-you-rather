@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import Login from "./Login";
 import QuestionCard from "./QuestionCard";
 
 export default function Home() {
@@ -8,10 +9,15 @@ export default function Home() {
   const questions = useSelector((state) => state.questions);
   const users = useSelector((state) => state.users);
   const authedUser = useSelector((state) => state.authedUser);
+  const [isAuthed, setIsAuthed] = useState(authedUser.id && authedUser.id !== 'guest')
 
   const handleChangeQuestionsType = (type) => {
     setQuestionsType({ type: type });
   };
+
+  const showHome = () => {
+    setIsAuthed(true)
+}
 
   const checkIfUserAnswered = (question, questionsType) => {
     return questionsType === 0
@@ -26,56 +32,58 @@ export default function Home() {
   };
 
   return (
-    <div className="home-page-container">
-      <div className="questions-type-container">
-        <button
-          className={questionsType.type === 0 ? "active-questions-type" : ""}
-          onClick={() => handleChangeQuestionsType(0)}
-        >
-          Unanswered Questions
-        </button>
-        <button
-          className={questionsType.type === 1 ? "active-questions-type" : ""}
-          onClick={() => handleChangeQuestionsType(1)}
-        >
-          Answered Questions
-        </button>
-      </div>
-      <div className="feed-container">
-        <div className="feed">
-          {questionsType.type === 0
-            ? Object.keys(questions).map((id) => {
-                const question = questions[id];
-                const user = users[question.author]; 
-                const isAnswered = checkIfUserAnswered(question , 0) 
-                if (isAnswered)
-                  return (
-                    <QuestionCard
-                      question={question}
-                      user={user}
-                      QuestionStatus={isAnswered}
-                      key={question.id}
-                    ></QuestionCard>
-                  );
-                else return null;
-              })
-            : Object.keys(questions).map((id) => {
-                const question = questions[id];
-                const user = users[question.author]; 
-                const isNotAnswered = checkIfUserAnswered(question , 1) 
-                if (isNotAnswered)
-                  return (
-                    <QuestionCard
-                      question={question}
-                      user={user}
-                      QuestionStatus={!isNotAnswered}
-                      key={question.id}
-                    ></QuestionCard>
-                  );
-                else return null;
-              })}
+    isAuthed === true ?
+      <div className="home-page-container">
+        <div className="questions-type-container">
+          <button
+            className={questionsType.type === 0 ? "active-questions-type" : ""}
+            onClick={() => handleChangeQuestionsType(0)}
+          >
+            Unanswered Questions
+          </button>
+          <button
+            className={questionsType.type === 1 ? "active-questions-type" : ""}
+            onClick={() => handleChangeQuestionsType(1)}
+          >
+            Answered Questions
+          </button>
+        </div>
+        <div className="feed-container">
+          <div className="feed">
+            {questionsType.type === 0
+              ? Object.keys(questions).map((id) => {
+                  const question = questions[id];
+                  const user = users[question.author]; 
+                  const isAnswered = checkIfUserAnswered(question , 0) 
+                  if (isAnswered)
+                    return (
+                      <QuestionCard
+                        question={question}
+                        user={user}
+                        QuestionStatus={isAnswered}
+                        key={question.id}
+                      ></QuestionCard>
+                    );
+                  else return null;
+                })
+              : Object.keys(questions).map((id) => {
+                  const question = questions[id];
+                  const user = users[question.author]; 
+                  const isNotAnswered = checkIfUserAnswered(question , 1) 
+                  if (isNotAnswered)
+                    return (
+                      <QuestionCard
+                        question={question}
+                        user={user}
+                        QuestionStatus={!isNotAnswered}
+                        key={question.id}
+                      ></QuestionCard>
+                    );
+                  else return null;
+                })}
+          </div>
         </div>
       </div>
-    </div>
+    : <Login showPage={() => showHome()} />
   );
 }

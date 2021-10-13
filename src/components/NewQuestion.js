@@ -3,12 +3,14 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
 import { handleAddNewQuestion } from "../actions/shared";
+import Login from "./Login";
 
 export default function NewQuestion() {
   const [optionOne, setoptionOne] = useState("");
   const [optionTwo, setoptionTwo] = useState("");
   const dispatch = useDispatch();
   const authedUser = useSelector((state) => state.authedUser);
+  const [isAuthed, setIsAuthed] = useState(authedUser.id && authedUser.id !== 'guest')
 
     const resetValues = () => {
         setoptionOne('')
@@ -30,7 +32,12 @@ export default function NewQuestion() {
     
   };
 
+  const showAdd = () => {
+    setIsAuthed(true)
+  }
+
   return (
+    isAuthed === true ?
     <div className="new-question-container">
       <div className="new-question-card">
         <LoadingBar style={{ maxWidth: "40%" }} />
@@ -67,5 +74,6 @@ export default function NewQuestion() {
         </div>
       </div>
     </div>
+    : <Login showPage={() => showAdd()} />
   );
 }
