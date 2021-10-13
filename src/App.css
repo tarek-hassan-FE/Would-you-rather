@@ -184,6 +184,7 @@ a {
   justify-content: center;
   padding: 20px;
   border: 1px solid var(--border);
+  margin-bottom: 50px;
 }
 
 .questions-type-container {
