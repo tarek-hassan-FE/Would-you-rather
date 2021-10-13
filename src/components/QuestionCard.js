@@ -1,11 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { handleUserAnswer } from "../actions/shared";
 import  LoadingBar  from "react-redux-loading-bar";
-
+import Results from './Results'
 export default function QuestionCard(props) {
   const { question, user, QuestionStatus } = props;
   const authedUser = useSelector((state) => state.authedUser);
@@ -13,6 +13,9 @@ export default function QuestionCard(props) {
   const [isAnswered, setisAnswered] = useState(QuestionStatus);
   const [selectedOption, setselectedOption] = useState("0");
   const dispatch = useDispatch();
+  const [isResultsReady, setisResultsReady] = useState(QuestionStatus)
+
+
 
   const handleAnswerQuestion = (e, selectedOption) => {
     e.preventDefault();
@@ -23,25 +26,10 @@ export default function QuestionCard(props) {
         question.id,
         selectedOption === "0" ? "optionOne" : "optionTwo"
       )
-    );
+    )
+    .then(() => {setisResultsReady(true)})
   };
 
-  const getOptionVotes = (option, question) => {
-    return question[option].votes.length;
-  };
-
-  const getQuestionTotalVotes = (question) => {
-    return question.optionOne.votes.length + question.optionTwo.votes.length;
-  };
-
-  const getOptionPercentage = (option, question) => {
-    return (
-      (
-        (getOptionVotes(option, question) / getQuestionTotalVotes(question)) *
-        100
-      ).toFixed(1) + "%"
-    );
-  };
 
   return (
     <div className="question-card">
@@ -54,56 +42,9 @@ export default function QuestionCard(props) {
         {
           location.pathname === `/questions/:${question.id}` ? (
             isAnswered ? (
-              <div className="question-card-question-container">
-                <h1>Results:</h1>
-                <div
-                  className={
-                    selectedOption === "0"
-                      ? "option-container selected-option"
-                      : "option-container"
-                  }
-                >
-                  <h3>{question.optionOne.text}</h3>
-                  <div className="answers-bar-container">
-                    <div
-                      className="answers-bar"
-                      style={{
-                        width: getOptionPercentage("optionOne", question),
-                      }}
-                    >
-                      {<p>{getOptionPercentage("optionOne", question)}</p>}
-                    </div>
-                  </div>
-                  <p className="option-stats">
-                    {getOptionVotes("optionOne", question)} out of{" "}
-                    {getQuestionTotalVotes(question)}
-                  </p>
-                </div>
-
-                <div
-                  className={
-                    selectedOption === "1"
-                      ? "option-container selected-option"
-                      : "option-container"
-                  }
-                >
-                  <h3>{question.optionOne.text}</h3>
-                  <div className="answers-bar-container">
-                    <div
-                      className="answers-bar"
-                      style={{
-                        width: getOptionPercentage("optionTwo", question),
-                      }}
-                    >
-                      {<p>{getOptionPercentage("optionTwo", question)}</p>}
-                    </div>
-                  </div>
-                  <p className="option-stats">
-                    {getOptionVotes("optionTwo", question)} out of{" "}
-                    {getQuestionTotalVotes(question)}
-                  </p>
-                </div>
-              </div>
+              isResultsReady === true 
+                ? <Results selectedOption={selectedOption} question={question} /> 
+                :null
             ) : (
               <div className="question-card-question-container">
                 <h1>Would you rather ...</h1>
