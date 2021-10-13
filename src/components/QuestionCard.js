@@ -17,7 +17,6 @@ export default function QuestionCard(props) {
   const handleAnswerQuestion = (e, selectedOption) => {
     e.preventDefault();
     setisAnswered(1);
-    // console.log(authedUser.id , question.id , selectedOption)
     dispatch(
       handleUserAnswer(
         authedUser.id,
@@ -151,17 +150,7 @@ export default function QuestionCard(props) {
               </Link>
             </div>
           )
-          // location.pathname === `/questions/:${question.id}` && isAnswered
-          // ? <div className="question-card-question-container">
-          //     'Is Answered'
-          //     </div>
-          // : <div className="question-card-question-container">
-          //     <p>Would you rather</p>
-          //     <p>_{question.optionOne.text}_</p>
-          //     <Link to={ `/questions/:${question.id}`}>
-          //         <button className="btn-outline" >View poll</button>
-          //     </Link>
-          // </div>
+          
         }
       </div>
     </div>

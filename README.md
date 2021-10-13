@@ -55,7 +55,7 @@ _________________
     3. When the user comes back to the home page, the polling question appears in the “Answered” column.
     4. The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
 
-- [ ] Users can add new polls
+- [x] Users can add new polls
     1. The form is available at `/add`.
     2. The application shows the text “Would You Rather” and has a form for creating two options.
     3. Upon submitting the form, a new poll is created and the user is taken to the home page.

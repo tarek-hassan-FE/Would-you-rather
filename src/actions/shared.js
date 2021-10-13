@@ -3,6 +3,7 @@ import {
   _saveQuestionAnswer,
   _getUsers,
   _getQuestions,
+  _saveQuestion,
 } from "../utils/_DATA";
 import { receiveUsers } from "./users";
 import { getQuestions } from "./questions";
@@ -36,4 +37,20 @@ export function handleUserAnswer(authedUser, qid, answer) {
         dispatch(hideLoading())
       })
   };
+}
+
+export function handleAddNewQuestion(question) {
+  return (dispatch) => {
+    dispatch(showLoading())
+    return _saveQuestion(question)
+    .then(() => _getUsers())
+      .then((users) => {
+        dispatch(receiveUsers(users));
+      })
+      .then(() => _getQuestions())
+      .then((questions) => {
+        dispatch(getQuestions(questions));
+        dispatch(hideLoading())
+      })
+  }
 }

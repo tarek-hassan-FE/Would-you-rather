@@ -361,3 +361,49 @@ input[type="radio"]:checked {
 }
 
 /* ---------------- */
+
+
+.new-question-container {
+  display: flex;
+  justify-content: center;
+}
+
+.new-question-card {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--border);
+  margin-top: 50px;
+}
+
+.new-question-title-container {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.new-question-body-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.new-question-options-container {
+  text-align: center;
+}
+
+.new-question-options-container input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+
+.new-question-options-container input::placeholder {
+  color: rgb(119, 119, 119);
+}
+
+
+
