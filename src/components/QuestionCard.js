@@ -40,7 +40,7 @@ export default function QuestionCard(props) {
       (
         (getOptionVotes(option, question) / getQuestionTotalVotes(question)) *
         100
-      ).toFixed(0) + "%"
+      ).toFixed(1) + "%"
     );
   };
 
