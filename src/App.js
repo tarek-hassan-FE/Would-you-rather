@@ -11,6 +11,7 @@ import Home from './components/Home';
 import AuthRoute from './components/AuthRoute'
 import Question from './components/Question';
 import NewQuestion from './components/NewQuestion';
+import LeaderBoard from './components/LeaderBoard';
 
 const composedEnhancer = compose(applyMiddleware(thunk) , window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
@@ -46,6 +47,11 @@ function App() {
           <AuthRoute path='/new-question'>
             <Navbar />
             <NewQuestion />
+          </AuthRoute>
+
+          <AuthRoute path='/leaderboard'>
+            <Navbar />
+            <LeaderBoard />
           </AuthRoute>
 
         </Switch>

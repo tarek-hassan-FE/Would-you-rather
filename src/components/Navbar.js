@@ -36,8 +36,8 @@ function Navbar() {
                     </Link>
 
                     <Link 
-                        to='/leader-board' 
-                        className={location.pathname === '/leader-board' ? 'active-page' : ''} >
+                        to='/leaderboard' 
+                        className={location.pathname === '/leaderboard' ? 'active-page' : ''} >
                         Leaderboard
                     </Link>
 

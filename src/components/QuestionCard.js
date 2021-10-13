@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,7 +33,7 @@ export default function QuestionCard(props) {
 
   return (
     <div className="question-card">
-        <LoadingBar style={{maxWidth: '59%'}}  />
+        <LoadingBar style={{maxWidth: '40%'}}  />
       <div className="question-card-title">{user.name} asks:</div>
       <div className="question-card-body">
         <div className="question-card-avatar-container">

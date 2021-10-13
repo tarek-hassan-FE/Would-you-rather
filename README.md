@@ -24,7 +24,7 @@ _________________
 _________________
 
 ### Application Functionality
-- [ ]  Home page have the desired functionality.
+- [x]  Home page have the desired functionality.
     1. The answered and unanswered polls are both available at the root.
     2. The user can alternate between viewing answered and unanswered polls.
     3. The unanswered questions are shown by default.
@@ -61,7 +61,7 @@ _________________
     3. Upon submitting the form, a new poll is created and the user is taken to the home page.
     4. The new polling question appears in the correct category on the home page.
 
-- [ ] The leaderboard work correctly and have the desired functionality
+- [x] The leaderboard work correctly and have the desired functionality
     1. The Leaderboard is available at/leaderboard.
     2. Each entry on the leaderboard contains the following:
         - the user’s name;
@@ -70,33 +70,33 @@ _________________
         - the number of questions the user answered.
     3. Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
-- [ ] The application navigable
+- [x] The application navigable
     - The app contains a navigation bar that is visible on all of the pages.
     - The user can navigate between the page for creating new polls, and the leaderboard page, and the home page without typing the address into the address bar.
 
-- [ ] The application interact with the backend correctly
+- [x] The application interact with the backend correctly
     - The data that’s initially displayed is populated correctly from the backend.
     - Each user’s answer and each new poll is correctly recorded on the backend.
 
-- [ ] The code free of warnings that resulted from not following the best practices
+- [x] The code free of warnings that resulted from not following the best practices
     - The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using `key` for list items. All code is functional and formatted properly.
 _________________
 
 ### Architecture
-- [ ] The store serve as the application’s single source of truth
+- [x] The store serve as the application’s single source of truth
     - The store is the application’s source of truth.
     - Components read the necessary state from the store; they do not have their own versions of the same state.
     - There are no direct API calls in the components' lifecycle methods.
 
-- [ ] Application state managed by Redux
+- [x] Application state managed by Redux
     - Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
     - Form inputs and controlled components may have some state handled by the component.
 
-- [ ] Application state update correctly
+- [x] Application state update correctly
     - Updates are triggered by dispatching action creators to reducers.
     - Reducers and actions are written properly and correctly return updated state to the store.
 
-- [ ] The architecture of the application make sense
+- [x] The architecture of the application make sense
     - The code is structured and organized in a logical way.
     - Components are modular and reusable.
 _________________
@@ -104,7 +104,7 @@ _________________
 ## Bonus Tasks
 - [ ] Add the functionality for creating new users.
 - [ ] Add authentication.
-- [ ] Add a loading bar.
+- [x] Add a loading bar.
 
 
 
