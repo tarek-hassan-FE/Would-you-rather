@@ -59,7 +59,7 @@ function Login() {
                                     })
                                 }
                             </select>
-                                <button type="submit" className='btn'>Submit</button>
+                                <button type="submit" disabled={selectedUserID === '' ? true : false}  className='btn'>Submit</button>
                         </form>
                     </div>
                 </div>
