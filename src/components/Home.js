@@ -21,19 +21,10 @@ export default function Home() {
     }).sort((a,b) =>(b[0] - a[0])  )
   }
 
-  const sortQuestionsByVotes = (questions) => {
-    return Object.keys(questions).map(questionID => {
-        return [
-            questions[questionID].optionOne.votes.length + questions[questionID].optionTwo.votes.length  , 
-            questions[questionID].id
-        ]
-    }).sort((a,b) =>(b[0] - a[0])  )
-  }
-
   
   const sortedQuestions = sortQuestionsByTime(questions)
-  const sorteAnswereddQuestions = sortQuestionsByVotes(questions)
-
+  const sorteAnswereddQuestions = sortQuestionsByTime(questions)
+  console.log(sorteAnswereddQuestions)
   const handleChangeQuestionsType = (type) => {
     setQuestionsType({ type: type });
   };
