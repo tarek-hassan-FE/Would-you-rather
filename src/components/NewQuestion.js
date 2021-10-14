@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingBar from "react-redux-loading-bar";
 import { handleAddNewQuestion } from "../actions/shared";
+import { useHistory } from "react-router";
 import Login from "./Login";
 
 export default function NewQuestion() {
@@ -11,11 +12,8 @@ export default function NewQuestion() {
   const dispatch = useDispatch();
   const authedUser = useSelector((state) => state.authedUser);
   const [isAuthed, setIsAuthed] = useState(authedUser.id && authedUser.id !== 'guest')
+  const history = useHistory()
 
-    const resetValues = () => {
-        setoptionOne('')
-        setoptionTwo('')
-    }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -26,8 +24,7 @@ export default function NewQuestion() {
         author: authedUser.id,
       })
     )
-    .then(() => resetValues())
-    .then(() => alert('Question Added successfuly')) ;
+    .then(() => history.push('/home')) ;
     
     
   };
