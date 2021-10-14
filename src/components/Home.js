@@ -20,7 +20,19 @@ export default function Home() {
         ]
     }).sort((a,b) =>(b[0] - a[0])  )
   }
+
+  const sortQuestionsByVotes = (questions) => {
+    return Object.keys(questions).map(questionID => {
+        return [
+            questions[questionID].optionOne.votes.length + questions[questionID].optionTwo.votes.length  , 
+            questions[questionID].id
+        ]
+    }).sort((a,b) =>(b[0] - a[0])  )
+  }
+
+  
   const sortedQuestions = sortQuestionsByTime(questions)
+  const sorteAnswereddQuestions = sortQuestionsByVotes(questions)
 
   const handleChangeQuestionsType = (type) => {
     setQuestionsType({ type: type });
@@ -77,8 +89,8 @@ export default function Home() {
                     );
                   else return null;
                 })
-              : Object.keys(questions).map((id) => {
-                  const question = questions[id];
+              : sorteAnswereddQuestions.map((q) => {
+                  const question = questions[q[1]];
                   const user = users[question.author]; 
                   const isNotAnswered = checkIfUserAnswered(question , 1) 
                   if (isNotAnswered)
